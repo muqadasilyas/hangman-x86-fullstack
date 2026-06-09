@@ -1,0 +1,13 @@
+LIBRARY hangman_lib
+EXPORTS
+    HG_SelectWord
+    HG_Reset
+    HG_GetHiddenWord
+    HG_GetWordLength
+    HG_GetLives
+    HG_GuessLetter
+    HG_GetHint
+    HG_CheckWin
+    HG_IsGameOver
+    HG_SeedRandom
+    HG_GetState

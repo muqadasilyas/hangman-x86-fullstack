@@ -1,0 +1,19 @@
+# Node
+node_modules/
+npm-debug.log
+
+# Build outputs
+*.exe
+*.obj
+*.lib
+
+# Runtime generated files
+state.txt
+shuffle.txt
+
+# React build folder
+frontend/build/
+
+# Windows
+Thumbs.db
+desktop.ini

@@ -1,0 +1,255 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Playful claymation theme — warm pastel, soft 3D, bouncy */
+@layer base {
+  :root {
+    --background: 35 60% 94%;
+    --foreground: 252 35% 18%;
+
+    --card: 35 70% 98%;
+    --card-foreground: 252 35% 18%;
+
+    --popover: 35 70% 98%;
+    --popover-foreground: 252 35% 18%;
+
+    /* Cherry-clay primary */
+    --primary: 350 85% 62%;
+    --primary-foreground: 0 0% 100%;
+    --primary-deep: 350 70% 45%;
+
+    /* Sky-clay secondary */
+    --secondary: 200 80% 88%;
+    --secondary-foreground: 220 60% 22%;
+
+    --muted: 35 40% 88%;
+    --muted-foreground: 252 20% 40%;
+
+    /* Sunny-clay accent */
+    --accent: 45 95% 62%;
+    --accent-foreground: 30 60% 18%;
+    --accent-deep: 35 90% 50%;
+
+    --destructive: 5 85% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --warning: 35 95% 58%;
+    --success: 145 60% 50%;
+    --info: 220 80% 62%;
+
+    /* Mint-clay */
+    --mint: 160 65% 65%;
+    --mint-deep: 160 55% 45%;
+    /* Lavender-clay */
+    --lav: 265 75% 72%;
+    --lav-deep: 265 60% 50%;
+
+    --border: 35 35% 80%;
+    --input: 35 35% 85%;
+    --ring: 350 85% 62%;
+
+    --radius: 1.4rem;
+
+    /* Soft 3D clay shadows: dark below, light above */
+    --shadow-clay:
+      0 10px 0 -2px hsl(var(--primary-deep) / 0.55),
+      0 14px 25px -8px hsl(252 50% 25% / 0.35),
+      inset 0 -6px 12px hsl(0 0% 0% / 0.12),
+      inset 0 6px 12px hsl(0 0% 100% / 0.4);
+
+    --shadow-soft:
+      0 12px 28px -10px hsl(252 50% 25% / 0.25),
+      inset 0 -4px 10px hsl(0 0% 0% / 0.06),
+      inset 0 4px 10px hsl(0 0% 100% / 0.7);
+
+    --shadow-pressed:
+      0 2px 0 -1px hsl(var(--primary-deep) / 0.55),
+      inset 0 4px 10px hsl(0 0% 0% / 0.18);
+
+    --gradient-sky: radial-gradient(ellipse at 20% 0%, hsl(200 90% 85%) 0%, transparent 55%),
+                    radial-gradient(ellipse at 80% 10%, hsl(45 95% 80%) 0%, transparent 50%),
+                    radial-gradient(ellipse at 50% 100%, hsl(350 85% 85%) 0%, transparent 55%),
+                    linear-gradient(180deg, hsl(200 70% 92%), hsl(45 70% 92%));
+  }
+
+  .dark {
+    --background: 252 35% 12%;
+    --foreground: 35 60% 94%;
+    --card: 252 30% 16%;
+    --card-foreground: 35 60% 94%;
+    --border: 252 20% 28%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  html, body, #root { height: 100%; }
+  body {
+    @apply text-foreground antialiased;
+    font-family: 'Nunito', 'Quicksand', system-ui, sans-serif;
+    font-weight: 700;
+    background: var(--gradient-sky);
+    background-attachment: fixed;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Fredoka', 'Nunito', system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .font-mono { font-family: 'JetBrains Mono', monospace; }
+}
+
+@layer utilities {
+  .clay { box-shadow: var(--shadow-clay); }
+  .clay-soft { box-shadow: var(--shadow-soft); }
+  .clay-pressed { box-shadow: var(--shadow-pressed); }
+
+  .text-stroke-dark {
+    -webkit-text-stroke: 2px hsl(var(--primary-deep));
+    paint-order: stroke fill;
+  }
+  .text-shadow-pop {
+    text-shadow:
+      0 2px 0 hsl(var(--primary-deep) / 0.6),
+      0 6px 14px hsl(252 50% 25% / 0.25);
+  }
+  .text-shadow-soft {
+    text-shadow: 0 3px 0 hsl(0 0% 100% / 0.6);
+  }
+
+  .bg-cloud {
+    background-image:
+      radial-gradient(circle at 10% 20%, hsl(0 0% 100% / 0.6) 0, transparent 14%),
+      radial-gradient(circle at 80% 30%, hsl(0 0% 100% / 0.5) 0, transparent 12%),
+      radial-gradient(circle at 50% 80%, hsl(0 0% 100% / 0.45) 0, transparent 16%),
+      radial-gradient(circle at 25% 75%, hsl(0 0% 100% / 0.4) 0, transparent 12%);
+  }
+}
+
+@layer components {
+  /* Clay button — bouncy press */
+  .clay-btn {
+    @apply relative font-bold rounded-[1.2rem] px-5 py-3
+           bg-gradient-to-b from-white/40 to-transparent
+           transition-all duration-150 ease-out
+           active:translate-y-[6px];
+    box-shadow: var(--shadow-clay);
+  }
+  .clay-btn:active { box-shadow: var(--shadow-pressed); }
+
+  /* Letter key */
+  .key {
+    @apply relative font-bold uppercase rounded-[0.95rem]
+           transition-all duration-150 ease-out
+           active:translate-y-[5px] disabled:cursor-not-allowed
+           text-foreground;
+    background: linear-gradient(180deg, hsl(0 0% 100%), hsl(35 50% 92%));
+    box-shadow:
+      0 6px 0 -1px hsl(35 30% 65%),
+      0 10px 18px -8px hsl(252 50% 25% / 0.3),
+      inset 0 2px 4px hsl(0 0% 100% / 0.9);
+  }
+  .key:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow:
+      0 8px 0 -1px hsl(35 30% 65%),
+      0 14px 22px -8px hsl(252 50% 25% / 0.35),
+      inset 0 2px 4px hsl(0 0% 100% / 0.9);
+  }
+  .key:active:not(:disabled) {
+    box-shadow:
+      0 1px 0 -1px hsl(35 30% 65%),
+      inset 0 3px 8px hsl(0 0% 0% / 0.18);
+  }
+  .key-correct {
+    background: linear-gradient(180deg, hsl(145 70% 70%), hsl(145 65% 55%));
+    color: hsl(0 0% 100%);
+    box-shadow:
+      0 5px 0 -1px hsl(145 60% 38%),
+      0 10px 18px -6px hsl(145 60% 30% / 0.4),
+      inset 0 2px 4px hsl(0 0% 100% / 0.5);
+  }
+  .key-wrong {
+    background: linear-gradient(180deg, hsl(5 85% 70%), hsl(5 80% 55%));
+    color: hsl(0 0% 100%);
+    box-shadow:
+      0 5px 0 -1px hsl(5 70% 38%),
+      0 10px 18px -6px hsl(5 70% 30% / 0.4),
+      inset 0 2px 4px hsl(0 0% 100% / 0.4);
+  }
+
+  /* Letter slot in word display */
+  .slot {
+    @apply relative font-mono uppercase font-extrabold flex items-center justify-center
+           rounded-[0.9rem] transition-all duration-300;
+    background: linear-gradient(180deg, hsl(0 0% 100% / 0.6), hsl(35 40% 86%));
+    box-shadow:
+      inset 0 4px 8px hsl(0 0% 0% / 0.12),
+      0 2px 0 hsl(0 0% 100%);
+  }
+  .slot-filled {
+    background: linear-gradient(180deg, hsl(45 95% 75%), hsl(35 90% 60%));
+    color: hsl(30 60% 20%);
+    box-shadow:
+      0 4px 0 -1px hsl(35 80% 40%),
+      0 8px 16px -4px hsl(35 60% 30% / 0.4),
+      inset 0 2px 3px hsl(0 0% 100% / 0.7);
+    transform: translateY(-2px);
+  }
+}
+
+/* ===== Keyframes ===== */
+@keyframes bounce-in {
+  0% { transform: scale(0.3) rotate(-12deg); opacity: 0; }
+  60% { transform: scale(1.15) rotate(4deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0); }
+}
+.animate-bounce-in { animation: bounce-in 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+
+@keyframes wobble {
+  0%, 100% { transform: rotate(0); }
+  20% { transform: rotate(-6deg); }
+  40% { transform: rotate(5deg); }
+  60% { transform: rotate(-3deg); }
+  80% { transform: rotate(2deg); }
+}
+.animate-wobble { animation: wobble 0.6s ease-in-out; }
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-10px); }
+  40% { transform: translateX(10px); }
+  60% { transform: translateX(-7px); }
+  80% { transform: translateX(7px); }
+}
+.animate-shake { animation: shake 0.45s ease-in-out; }
+
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.18); }
+  100% { transform: scale(1); }
+}
+.animate-pop { animation: pop 0.35s ease-out; }
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.animate-float-y { animation: float-y 3.5s ease-in-out infinite; }
+
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow { animation: spin-slow 18s linear infinite; }
+
+@keyframes confetti-fall {
+  0% { transform: translateY(-20vh) rotate(0); opacity: 1; }
+  100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}
+
+@keyframes spark {
+  0% { transform: translate(0,0) scale(1); opacity: 1; }
+  100% { transform: translate(var(--dx), var(--dy)) scale(0); opacity: 0; }
+}
