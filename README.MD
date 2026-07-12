@@ -6,6 +6,42 @@
 
 ---
 
+# 🏠 Home Page
+
+<p align="center">
+  <img src="images/homepage.png" width="900">
+</p>
+
+---
+
+# 🎨 Theme Selection
+
+<p align="center">
+  <img src="images/theme.png" width="900">
+</p>
+
+---
+
+# 🎮 Gameplay
+
+<p align="center">
+  <img src="images/game1.png" width="900">
+</p>
+
+<p align="center">
+  <img src="images/game2.png" width="900">
+</p>
+
+---
+
+# 💀 Game Over
+
+<p align="center">
+  <img src="images/gameover.png" width="900">
+</p>
+
+---
+
 ## 🏗️ Architecture
 React Frontend
 ↓  HTTP
