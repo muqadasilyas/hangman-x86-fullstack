@@ -6,6 +6,52 @@
 
 ---
 
+# 🏗️ Architecture
+
+```
+React Frontend
+      │
+      ▼
+Node.js Express API
+      │
+   execFile()
+      │
+      ▼
+ C++ Bridge
+      │
+      ▼
+x86 MASM Assembly Library
+```
+
+Every guess, hint, life deduction, and win/loss check is executed inside the Assembly library.
+
+---
+
+
+## ✨ Features
+
+- 90 words across 6 categories
+- 3 difficulty levels (Easy / Medium / Hard)
+- Shuffle system — no word repeats until all 15 in a category are used
+- Hint system — reveals a letter at the cost of 1 life
+- Full win / game over detection
+- State persistence across HTTP requests via text files
+
+---
+
+## 🗂️ Word Categories
+
+| # | Category |
+|---|---|
+| 1 | Business |
+| 2 | Technology |
+| 3 | Programming |
+| 4 | Networking |
+| 5 | Electronics |
+| 6 | Software Engineering |
+
+---
+
 # 🏠 Home Page
 
 <p align="center">
@@ -39,44 +85,6 @@
 <p align="center">
   <img src="images/gameover.png" width="900">
 </p>
-
----
-
-## 🏗️ Architecture
-React Frontend
-↓  HTTP
-Node.js Express API
-↓  execFile()
-C++ Bridge (bridge.exe)
-↓  linked
-x86 MASM Assembly Library (.lib)
-
-Every guess, life deduction, hint, and win/loss check happens 
-inside Assembly code running at the lowest level of the stack.
-
----
-
-## ✨ Features
-
-- 90 words across 6 categories
-- 3 difficulty levels (Easy / Medium / Hard)
-- Shuffle system — no word repeats until all 15 in a category are used
-- Hint system — reveals a letter at the cost of 1 life
-- Full win / game over detection
-- State persistence across HTTP requests via text files
-
----
-
-## 🗂️ Word Categories
-
-| # | Category |
-|---|---|
-| 1 | Business |
-| 2 | Technology |
-| 3 | Programming |
-| 4 | Networking |
-| 5 | Electronics |
-| 6 | Software Engineering |
 
 ---
 
