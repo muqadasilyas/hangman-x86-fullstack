@@ -150,7 +150,7 @@ http://localhost:3000
 ---
 
 ## 📁 Project Structure
-
+```text
 hangman-x86-fullstack/
 ├── assembly/          # x86 MASM source — all game logic
 ├── bridge/            # C++ bridge source
