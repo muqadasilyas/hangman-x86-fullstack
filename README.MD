@@ -157,7 +157,7 @@ hangman-x86-fullstack/
 ├── hangmanbackend/           # Node.js Express API
 ├── hangmanfrontend/          # React web interface
 
-```text
+---
 ---
 
 ## 💡 Why This Project
