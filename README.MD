@@ -150,22 +150,23 @@ http://localhost:3000
 ---
 
 ## 📁 Project Structure
+
 ```text
 hangman-x86-fullstack/
-├── assembly/          # x86 MASM source — all game logic
-├── bridge/            # C++ bridge source
-├── hangmanbackend/           # Node.js Express API
-├── hangmanfrontend/          # React web interface
+├── assembly/             # x86 MASM source — all game logic
+├── bridge/               # C++ bridge source
+├── hangmanbackend/       # Node.js Express API
+└── hangmanfrontend/      # React web interface
+```
 
----
 ---
 
 ## 💡 Why This Project
 
-Most Assembly programs written in academic settings are standalone 
-console apps dependent on teaching libraries. This project removes 
-those limitations entirely — the Assembly code has no external 
-dependencies, follows standard cdecl calling conventions, and 
+Most Assembly programs written in academic settings are standalone
+console apps dependent on teaching libraries. This project removes
+those limitations entirely — the Assembly code has no external
+dependencies, follows standard cdecl calling conventions, and
 functions as a portable library driving a real web application.
 
 ---
